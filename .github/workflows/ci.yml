@@ -1,12 +1,32 @@
-name: docker-task-manager
+name: Task Manager CI
 
 on:
   push:
     branches:
       - feature
+  workflow_dispatch:
 
 jobs:
-  build:
+  backend-build:
+    name: Backend Build
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "Hello Yaswanth!"
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Backend Dependencies
+        working-directory: backend_manager
+        run: npm install
+
+      - name: Verify Installation
+        working-directory: backend_manager
+        run: npm list --depth=0
+
+      - name: Backend Build Complete
+        run: echo "Backend dependencies installed successfully!"
