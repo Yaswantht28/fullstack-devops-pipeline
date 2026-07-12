@@ -1,0 +1,12 @@
+name: docker-task-manager
+
+on:
+  push:
+    branches:
+      - feature
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello Yaswanth!"
