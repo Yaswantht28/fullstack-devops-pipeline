@@ -1,0 +1,36 @@
+
+version: "3.8"
+
+services:
+
+  mongodb:
+    image: mongo
+    container_name: mongo-container
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend_manager
+    image: task-manager-backend:1.0
+    container_name: backend-container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/taskdb
+      - PORT=3000
+
+  frontend:
+    build: ./frontend
+    image: task-manager-frontend:1.0
+    container_name: frontend-container
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
