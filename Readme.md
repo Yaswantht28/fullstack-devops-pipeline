@@ -116,9 +116,9 @@ git --version
 # 📥 Clone the Repository
 
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/<YOUR_REPOSITORY>.git
+git clone https://github.com/Yaswantht28/task-manager-docker.git
 
-cd <YOUR_REPOSITORY>
+cd task-manager-docker.git
 ```
 
 ---
