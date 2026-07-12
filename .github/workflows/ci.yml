@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - feature
+
   workflow_dispatch:
 
 jobs:
-  backend-build:
-    name: Backend Build
+  frontend-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,13 +20,14 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Backend Dependencies
-        working-directory: backend_manager
+      - name: Install Frontend Dependencies
+        working-directory: frontend
         run: npm install
 
-      - name: Verify Installation
-        working-directory: backend_manager
-        run: npm list --depth=0
+      - name: Run ESLint
+        working-directory: frontend
+        run: npm run lint
 
-      - name: Backend Build Complete
-        run: echo "Backend dependencies installed successfully!"
+      - name: Build Frontend
+        working-directory: frontend
+        run: npm run build
