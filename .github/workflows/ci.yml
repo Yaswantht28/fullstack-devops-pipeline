@@ -92,10 +92,10 @@ jobs:
             ./frontend
 
       - name: Push Backend Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/task-backend:${{ vars.IMAGE_VERSION }}
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/task-backend:${{ vars.BACKEND_IMAGE_VERSION }}
 
       - name: Push Frontend Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/task-frontend:${{ vars.IMAGE_VERSION }}
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/task-frontend:${{ vars.FRONTEND_IMAGE_VERSION }}
       
       - name: List Docker Images
         run: docker images
