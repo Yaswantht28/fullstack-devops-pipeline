@@ -3,7 +3,7 @@ name: Task Manager CI
 on:
   push:
     branches:
-      - feature
+      - master
 
   workflow_dispatch:
 
