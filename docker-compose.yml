@@ -12,8 +12,7 @@ services:
       - mongo-data:/data/db
 
   backend:
-    build: ./backend_manager
-    image: task-manager-backend:1.0
+    image: yaswantht28/task-backend:1.0
     container_name: backend-container
     ports:
       - "3000:3000"
@@ -24,8 +23,7 @@ services:
       - PORT=3000
 
   frontend:
-    build: ./frontend
-    image: task-manager-frontend:1.0
+    image: yaswantht28/task-frontend:1.0
     container_name: frontend-container
     ports:
       - "5173:5173"
